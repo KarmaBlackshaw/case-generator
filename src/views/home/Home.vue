@@ -18,6 +18,7 @@
           v-model="userInput"
           type="text"
           class="input"
+          placeholder="Start typing..."
         ></textarea>
       </div>
 
