@@ -2,7 +2,7 @@
 import _toLower from 'lodash/toLower'
 
 const isProbablyTrue = () => Math.random() > 0.4
-const isVowel = char => 'aeiou'.includes(_toLower(char))
+const isVowel = char => char && 'aeiou'.includes(_toLower(char))
 const isLastCharVowel = str => isVowel(str[str.length - 1])
 
 export default () => {
