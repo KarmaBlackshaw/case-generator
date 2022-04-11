@@ -16,32 +16,33 @@ export default () => {
       s: ['5']
     }
 
-    return Array.from(_toLower(str).trim())
-      .map(char => {
-        const isJeje = isProbablyTrue()
-        const isUpper = isProbablyTrue()
+    const toJejeChar = char => {
+      const isJeje = isProbablyTrue()
+      const isUpper = isProbablyTrue()
 
-        const jejeChar = jejeMap[char]
+      const jejeChar = jejeMap[char]
 
-        if (isJeje && jejeChar) {
-          return jejeChar[Math.floor(Math.random() * jejeChar.length)]
-        }
+      if (isJeje && jejeChar) {
+        return jejeChar[Math.floor(Math.random() * jejeChar.length)]
+      }
 
-        return (isUpper ? char.toUpperCase() : char)
-      })
-      .join('')
+      return (isUpper ? char.toUpperCase() : char)
+    }
+
+    return _toLower(str)
+      .trim()
       .split(' ')
       .map(word => {
         const prefixWithH = isProbablyTrue()
         const isPrefixableWithH = isLastCharVowel(word)
 
-        if (prefixWithH && isPrefixableWithH) {
-          const isUpper = isProbablyTrue()
+        const newWord = prefixWithH && isPrefixableWithH
+          ? `${word}h`
+          : word
 
-          return `${word}${isUpper ? 'H' : 'h'}`
-        }
-
-        return word
+        return Array.from(newWord)
+          .map(toJejeChar)
+          .join('')
       })
       .join(' ')
   }
