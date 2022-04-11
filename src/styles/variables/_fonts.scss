@@ -1,0 +1,49 @@
+// @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap");
+// @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap");
+// @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+
+// @mixin import-font($name, $path, $weight) {
+//   $base-url: "/assets/fonts/";
+//   font-family: $name;
+//   font-weight: $weight;
+//   font-style: normal;
+//   src: url($base-url + $path + ".eot"); /* IE9 Compat Modes */
+//   src: local(""),
+//     url($base-url + $path + "-" + $weight + ".eot?#iefix")
+//       format("embedded-opentype"),
+//     url($base-url + $path + "-" + $weight + ".woff2") format("font-woff2"),
+//     url($base-url + $path + "-" + $weight + ".woff") format("font-woff"),
+//     url($base-url + $path + "-" + $weight + ".ttf") format("font-truetype"),
+//     url($base-url + $path + "-" + $weight + ".svg") format("svg");
+// }
+
+@mixin font($font-name, $path, $weight: normal, $style: normal) {
+  @font-face {
+    $dir: "~@/assets/fonts/" + $path;
+
+    font-family: quote($font-name);
+    src: url($dir + ".eot");
+    src: url($dir + ".eot?#iefix") format("embedded-opentype"),
+      url($dir + ".woff") format("woff"), url($dir + ".ttf") format("truetype"),
+      url($dir + ".svg##{$font-name}") format("svg");
+    font-weight: $weight;
+    font-style: $style;
+  }
+}
+
+// @include font(Montserrat, "montserrat/montserrat-400", 400);
+// @include font(Montserrat, "montserrat/montserrat-800", 800);
+
+// @include font(Poppins, "poppins/Poppins-400", 400);
+// @include font(Poppins, "poppins/Poppins-700", 700);
+// @include font(Poppins, "poppins/Poppins-800", 800);
+
+// @include font(Roboto, "roboto/Roboto-400", 400);
+// @include font(Roboto, "roboto/Roboto-900", 900);
+
+// @include font(Roboto, "quicksand/quicksand-500", 500);
+// @include font(Roboto, "quicksand/quicksand-600", 600);
+// @include font(Roboto, "quicksand/quicksand-700", 700);
+// @include font(Roboto, "quicksand/quicksand-regular", 400);
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&family=Poppins:wght@400;700;800&family=Quicksand:wght@400;500;600;700&family=Roboto:wght@400;900&display=swap");
