@@ -6,7 +6,17 @@
       </div>
 
       <div class="card__subtitle">
-        <p>This tool generates a <strong>Jeje Case</strong>  based on your input</p>
+        <p>
+          This tool generates a
+          <a
+            class="card__text--bold"
+            href="https://simple.wikipedia.org/wiki/Jejemon"
+            target="_blank"
+          >
+            Jeje Case
+          </a>
+          based on your input
+        </p>
       </div>
 
       <div class="card__subtitle">
@@ -28,12 +38,20 @@
 
       <div class="card__subtitle upload-container">
         <button
-          class="btn"
+          class="btn btn--copy"
           role="button"
           @click="copy()"
         >
           <span v-if="!copied">Copy</span>
           <span v-else>Copied!</span>
+        </button>
+
+        <button
+          class="btn btn--clear"
+          role="button"
+          @click="clear"
+        >
+          Clear
         </button>
       </div>
 
@@ -83,7 +101,12 @@ export default {
       copied
     } = useClipboard({ source: jejeStr })
 
+    function clear () {
+      userInput.value = ''
+    }
+
     return {
+      clear,
       copy,
       copied,
       jejeStr,

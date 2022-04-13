@@ -7,9 +7,18 @@ const isLastCharVowel = str => isVowel(str[str.length - 1])
 
 export default () => {
   function toJeje (str) {
-    const jejeMap = {
+    const jejeCharacterMap = {
       a: ['4'],
       e: ['3'],
+      i: ['1', '!'],
+      g: ['6'],
+      o: ['0'],
+      s: ['5', 'cxs', 'zxcs']
+    }
+
+    const jejeWordMap = {
+      hello: ['eow'],
+      po: ['phoews'],
       i: ['1', '!'],
       g: ['6'],
       o: ['0'],
@@ -20,7 +29,7 @@ export default () => {
       const isJeje = isProbablyTrue()
       const isUpper = isProbablyTrue()
 
-      const jejeChar = jejeMap[char]
+      const jejeChar = jejeCharacterMap[char]
 
       if (isJeje && jejeChar) {
         return jejeChar[Math.floor(Math.random() * jejeChar.length)]
