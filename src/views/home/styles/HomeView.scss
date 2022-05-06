@@ -1,0 +1,206 @@
+.home {
+  font-family: Quicksand;
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  border-radius: 20px;
+  padding-top: min(30px, 10%);
+  padding-bottom: min(30px, 10%);
+  padding-left: min(60px, 10%);
+  padding-right: min(60px, 10%);
+  width: 100%;
+  max-width: 800px;
+  box-shadow: none;
+
+  @include breakpoint_sm {
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+      rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  }
+
+  .card__title {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: theme("colors.gray.600");
+    font-size: 2em;
+
+    @include breakpoint_sm {
+      font-size: 2.5em;
+    }
+
+    .card__title--accent {
+      color: theme("colors.blue.400");
+    }
+  }
+
+  .card__subtitle {
+    line-height: 150%;
+    color: theme("colors.gray.600");
+    text-align: center;
+
+    p {
+      margin-bottom: 20px;
+    }
+
+    h5 {
+      font-weight: 600;
+    }
+  }
+
+  .card__text--bold {
+    font-weight: bold;
+  }
+}
+
+.upload-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+
+  .upload__input-file {
+    display: none;
+  }
+
+  /* CSS */
+  .btn {
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 0.25rem;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: system-ui, -apple-system, system-ui, "Helvetica Neue",
+      Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    justify-content: center;
+    line-height: 1.25;
+    margin: 0;
+    min-height: 3rem;
+    padding: calc(0.875rem - 1px) calc(1.5rem - 1px);
+    position: relative;
+    text-decoration: none;
+    transition: all 250ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    width: auto;
+    margin-right: 5px;
+    margin-left: 5px;
+
+    &:hover,
+    &:focus {
+      border-color: rgba(0, 0, 0, 0.15);
+      box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+      color: rgba(0, 0, 0, 0.65);
+    }
+
+    &:hover {
+      transform: translateY(-1px);
+    }
+
+    &:active {
+      background-color: #f0f0f1;
+      border-color: rgba(0, 0, 0, 0.15);
+      box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+      color: rgba(0, 0, 0, 0.65);
+      transform: translateY(0);
+    }
+
+    &.btn--copy {
+      color: rgba(0, 0, 0, 0.85);
+      background-color: #ffffff;
+    }
+
+    &.btn--clear {
+      color: rgba(255, 255, 255, 0.85);
+      background-color: #e74c3c;
+    }
+  }
+}
+
+.language-credit {
+  margin-top: 40px;
+
+  img {
+    display: inline-block;
+    height: 30px;
+  }
+}
+
+.developer-credit {
+  display: flex;
+  justify-content: center;
+
+  .developer-credit--vue {
+    height: 30px;
+    width: 30px;
+  }
+
+  & > *:not(:last-child) {
+    margin-right: 3px;
+  }
+
+  a {
+    font-weight: bold;
+    transition: 0.2s ease;
+
+    &:hover {
+      color: #3b82f6;
+    }
+  }
+}
+
+.documentation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  flex: 1 1 auto;
+  position: relative;
+  flex-direction: column;
+
+  @include breakpoint_sm {
+    flex-direction: row;
+  }
+
+  img {
+    height: 100%;
+    width: 100%;
+  }
+
+  .documentation__img--dtr-form,
+  .documentation__img--excel-form {
+    max-width: 300px;
+    transition: 0.3s ease;
+    box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px,
+      rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+
+    &:hover {
+      transform: scale(1.01);
+    }
+  }
+
+  .documentation__img--chevron-right {
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+    transform: rotate(90deg);
+
+    @include breakpoint_sm {
+      transform: rotate(0deg);
+    }
+  }
+}
+
+.input {
+  width: 100%;
+  border: 1px solid rgb(163, 163, 163);
+  border-radius: 5px;
+  padding: 10px;
+}

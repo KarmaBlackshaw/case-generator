@@ -1,20 +1,47 @@
 <template>
   <div class="app">
+    <div class="app__header">
+      <TheNavigation />
+    </div>
+
     <div class="app__body">
-      <router-view />
+      <div class="app__aside">
+        <TheSidebar />
+      </div>
+
+      <div class="app__content">
+        <router-view />
+      </div>
     </div>
   </div>
 </template>
 
-<style lang="scss">
-.app {
-  min-height: 100vh;
-  height: 100%;
-  padding: 50px;
+<script>
+import { provide } from 'vue'
 
-  @include smAndBelow {
-    padding: 10px;
+import TheNavigation from '@/components/the-navigation/TheNavigation'
+import TheSidebar from '@/components/the-sidebar/TheSidebar'
+
+import useBreakpoint from '@/composables/useBreakpoint'
+import useTheme from '@/composables/useTheme'
+
+export default {
+  components: {
+    TheNavigation,
+    TheSidebar
+  },
+
+  setup () {
+    provide('breakpoint', useBreakpoint())
+    provide('theme', useTheme())
+
+    return {
+    }
   }
 }
+</script>
 
+<style lang="scss">
+@import '~assets/App';
 </style>
+

@@ -2,8 +2,9 @@ module.exports = {
   css: {
     loaderOptions: {
       sass: {
-        prependData: `
-          @import "@/styles/import.scss";
+        additionalData: `
+          @import "@/assets/scss/mixins/_breakpoint.scss";
+          @import "@/assets/scss/mixins/_theme.scss";
         `
       }
     }

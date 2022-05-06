@@ -1,45 +1,26 @@
 module.exports = {
-  root: true,
-  env: {
-    node: true
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
   },
-  extends: [
-    'plugin:vue/vue3-essential',
-    '@vue/standard'
+  "extends": [
+    'plugin:vue/vue3-recommended',
+    "eslint:recommended"
   ],
-  parserOptions: {
-    parser: 'babel-eslint'
+  "parserOptions": {
+    "ecmaVersion": 12,
+    "sourceType": "module"
   },
-  rules: {
-    'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off'
-  }
-}
-module.exports = {
-  root: true,
-
-  env: {
-    node: true,
-    browser: true
-  },
-
-  extends: [
-    'eslint:recommended',
-    'plugin:vue/essential',
-    '@vue/standard',
-    'plugin:vue/recommended'
+  "plugins": [
+    "vue"
   ],
-
-  parser: 'vue-eslint-parser',
-
-  parserOptions: {
-    parser: 'babel-eslint'
-  },
-
-  rules: {
+  "rules": {
+    'space-before-function-paren': ['error', 'always'],
     'array-bracket-spacing': ['error', 'never'],
     'array-callback-return': 'error',
     'arrow-parens': ['error', 'as-needed'],
+    'semi': ['error', 'never'],
     'arrow-spacing': 'error',
     'block-spacing': 'error',
     'brace-style': 'error',
@@ -51,9 +32,11 @@ module.exports = {
       extensions: ['vue'],
       shouldMatchCase: false
     }],
+    "no-multiple-empty-lines": [2, { "max": 1 }],
     'vue/no-unused-properties': ['error', {
       groups: ['props', 'data', 'computed', 'methods']
     }],
+    "object-curly-spacing": ['error', 'always'],
     indent: [
       'error',
       2,
@@ -63,7 +46,7 @@ module.exports = {
       }
     ],
     'no-alert': 'off',
-    'no-await-in-loop': 'off',
+    'no-await-in-loop': 'error',
     'no-console': 'off',
     'no-debugger': 'off',
     'no-else-return': 'error',
@@ -121,20 +104,5 @@ module.exports = {
     'vue/v-bind-style': ['error', 'shorthand'],
     'vue/v-on-style': ['error', 'shorthand'],
     'no-labels': 'off'
-  },
-
-  overrides: [
-    {
-      files: ['src/assets/js/translations/**/*.js'],
-      rules: {
-        camelcase: 'off'
-      }
-    },
-    {
-      files: ['tests/**/*.js'],
-      rules: {
-        'no-undef': 'off'
-      }
-    }
-  ]
+  }
 }
