@@ -16,15 +16,6 @@ export default () => {
       s: ['5', 'cxs', 'zxcs']
     }
 
-    const jejeWordMap = {
-      hello: ['eow'],
-      po: ['phoews'],
-      i: ['1', '!'],
-      g: ['6'],
-      o: ['0'],
-      s: ['5']
-    }
-
     const toJejeChar = char => {
       const isJeje = isProbablyTrue()
       const isUpper = isProbablyTrue()
@@ -54,6 +45,13 @@ export default () => {
           .join('')
       })
       .join(' ')
+  }
+
+  function toKebab (str) {
+    return str
+      .replace(/[^a-z]/gi, '-')
+      .replace(/\B([A-Z])/g, '-$1')
+      .toLowerCase()
   }
 
   return {
