@@ -46,7 +46,7 @@ import { useClipboard } from '@vueuse/core'
 import { ref, computed } from 'vue'
 
 // composables
-import useJeje from '@/composables/useJeje'
+import useCase from '@/composables/useCase'
 
 export default {
   name: 'HomeView',
@@ -54,7 +54,7 @@ export default {
   setup () {
     const {
       toJeje
-    } = useJeje()
+    } = useCase()
 
     const userInput = ref('')
 
