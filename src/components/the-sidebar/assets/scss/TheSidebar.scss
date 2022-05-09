@@ -1,14 +1,7 @@
 .the-sidebar {
-  $navbar-height: 85px;
-
-  $sidebar-margin: 5px;
-
-  padding: 10px 5px 10px 10px;
-  margin: $sidebar-margin;
-
-  width: 250px;
-  max-height: calc(100vh - $navbar-height - ($sidebar-margin * 2));
-  overflow: auto;
+  padding-top: 10px;
+  padding-right: 5px;
+  padding-bottom: 10px;
 
   .sidebar__search {
     margin-bottom: 10px;
@@ -35,7 +28,7 @@
   .sidebar__list.list {
     .list__item {
       border-radius: 5px;
-      padding: 20px 10px;
+      padding: 15px 10px;
       transition: 100ms ease;
       transition-property: border-color, background-color;
       cursor: pointer;
@@ -47,13 +40,15 @@
       }
 
       &:hover {
-        border-color: theme("colors.neutral.200");
-        background-color: theme("colors.neutral.100");
+        border-color: theme("colors.green.500");
+        background-color: theme("colors.green.200");
+        color: theme("colors.green.900");
         @apply shadow-sm;
 
         @include dark {
-          border-color: theme("colors.neutral.600");
-          background-color: theme("colors.neutral.700");
+          border-color: theme("colors.green.400");
+          background-color: theme("colors.green.300");
+          color: theme("colors.green.900");
         }
       }
     }
@@ -64,10 +59,10 @@
         margin-bottom: 2px;
         height: 1px;
         width: 100%;
-        background-color: theme("colors.neutral.100");
+        background-color: theme("colors.gray.100");
 
         @include dark {
-          background-color: theme("colors.neutral.800");
+          background-color: theme("colors.gray.700");
         }
       }
     }

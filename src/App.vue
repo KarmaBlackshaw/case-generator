@@ -13,6 +13,10 @@
         <router-view />
       </div>
     </div>
+
+    <div class="app__footer">
+      <TheFooter />
+    </div>
   </div>
 </template>
 
@@ -21,6 +25,7 @@ import { provide } from 'vue'
 
 import TheNavigation from '@/components/the-navigation/TheNavigation'
 import TheSidebar from '@/components/the-sidebar/TheSidebar'
+import TheFooter from '@/components/the-footer/TheFooter'
 
 import useBreakpoint from '@/composables/useBreakpoint'
 import useTheme from '@/composables/useTheme'
@@ -28,15 +33,13 @@ import useTheme from '@/composables/useTheme'
 export default {
   components: {
     TheNavigation,
-    TheSidebar
+    TheSidebar,
+    TheFooter
   },
 
   setup () {
     provide('breakpoint', useBreakpoint())
     provide('theme', useTheme())
-
-    return {
-    }
   }
 }
 </script>

@@ -2,19 +2,20 @@
   @apply shadow-md;
   width: 100%;
   top: 0;
+  height: 100%;
 
   @include dark() {
-    border-bottom: 1px solid theme("colors.green.500");
+    background-color: theme("colors.gray.900");
   }
 
   .navigation__body {
+    height: 100%;
     max-width: 1440px;
     width: 90%;
     margin-right: auto;
     margin-left: auto;
     display: flex;
     justify-content: space-between;
-    height: 80px;
     z-index: 99;
 
     & > * {

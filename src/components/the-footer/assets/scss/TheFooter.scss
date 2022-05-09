@@ -1,0 +1,18 @@
+.the-footer {
+  height: 100%;
+  display: flex;
+  background-color: theme("colors.gray.300");
+  justify-content: center;
+  align-items: center;
+
+  @include dark {
+    background-color: theme("colors.gray.700");
+  }
+
+  .footer__content {
+    img {
+      display: inline-block;
+      height: 18px;
+    }
+  }
+}
