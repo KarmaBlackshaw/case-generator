@@ -16,10 +16,7 @@
         </div>
 
         <div class="editor__body">
-          <textarea
-            id=""
-            name=""
-          >
+          <textarea v-model="userInput">
           </textarea>
         </div>
       </div>
@@ -31,10 +28,12 @@
 
         <div class="editor__body">
           <textarea
-            id=""
             disabled
-            name=""
           ></textarea>
+
+          <base-button class="editor__btn editor__btn--copy">
+            Copy
+          </base-button>
         </div>
       </div>
     </div>

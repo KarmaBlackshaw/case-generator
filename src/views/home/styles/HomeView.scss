@@ -74,6 +74,7 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 5px;
+    position: relative;
 
     textarea {
       height: inherit;
@@ -87,6 +88,28 @@
       &:focus {
         border: none;
         outline: none;
+      }
+    }
+  }
+
+  .editor__btn {
+    border-radius: 20px;
+
+    &.editor__btn--copy {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      width: 100px;
+      transition: background-color 200ms ease;
+      background-color: theme("colors.blue.500");
+      color: theme("colors.blue.100");
+
+      &:hover {
+        @apply ring;
+      }
+
+      &:focus {
+        background-color: theme("colors.blue.600");
       }
     }
   }
