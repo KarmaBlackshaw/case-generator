@@ -7,7 +7,7 @@
       >
         <base-hamburger
           class="hamburger"
-          @click="toggleSidebarVisibility"
+          @click="toggleSidebarVisibility()"
         />
       </div>
 

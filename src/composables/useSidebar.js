@@ -1,6 +1,9 @@
 import { ref, computed } from 'vue'
 
 // libs
+import _isNil from 'lodash/isNil'
+
+// vars
 const isVisible = ref(true)
 
 // composables
@@ -11,8 +14,8 @@ export default () => {
     breakpoint
   } = useBreakpoint()
 
-  function toggleVisibility () {
-    return isVisible.value = !isVisible.value
+  function toggleVisibility (value) {
+    return isVisible.value = _isNil(value) ? !isVisible.value : value
   }
 
   const isVisibleComputed = computed(() => {
