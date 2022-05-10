@@ -44,13 +44,23 @@
 
       &.the-navigation__item--logo {
         justify-content: center;
+        cursor: pointer;
+        font-family: "Permanent Marker";
+        text-align: center;
+        font-size: 3em;
+        background: #42d392;
+        background: linear-gradient(to right, #42d392 25%, #647eff 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
 
         @include breakpoint_sm {
+          font-size: 2em;
           justify-content: flex-start;
         }
 
         img {
-          height: 80px;
+          height: 60px;
           width: auto;
         }
       }
