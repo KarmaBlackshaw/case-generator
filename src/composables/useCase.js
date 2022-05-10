@@ -62,13 +62,13 @@ export default () => {
     {
       title: 'Alternating Case',
       slug: 'alternating',
-      definition: 'Alternating caps, also known as studly caps or sticky caps, is a form of text notation in which the capitalization of letters varies by some pattern, or arbitrarily, such as "aLtErNaTiNg cApS", "sTuDlY cApS" or "sTiCKycApS"',
+      definition: 'Alternating caps, also known as studly caps or sticky caps, is a form of text notation in which the capitalization of letters varies by some pattern, or arbitrarily',
       handler: toAlternating
     },
     {
       title: 'Alternating Reverse Case',
       slug: 'alternating-reverse',
-      definition: 'Alternating caps, also known as studly caps or sticky caps, is a form of text notation in which the capitalization of letters varies by some pattern, or arbitrarily, such as "aLtErNaTiNg cApS", "sTuDlY cApS" or "sTiCKycApS"',
+      definition: 'Alternating caps, also known as studly caps or sticky caps, is a form of text notation in which the capitalization of letters varies by some pattern, or arbitrarily',
       handler: toAlternatingInverse
     },
     {
