@@ -68,7 +68,7 @@ body {
     .app__aside {
       min-width: var(--sidebar-width);
       width: var(--sidebar-width);
-      max-height: calc(100vh - var(--navbar-height) - var(--footer-height));
+      height: calc(100vh - var(--navbar-height) - var(--footer-height));
       overflow: auto;
     }
 
