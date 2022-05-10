@@ -1,7 +1,7 @@
 import { ref, computed } from 'vue'
 
 // libs
-const isVisible = ref(false)
+const isVisible = ref(true)
 
 // composables
 import useBreakpoint from '@/composables/useBreakpoint'
