@@ -3,7 +3,7 @@
 
 <p align="left">
   <img
-    src="https://badges.pufler.dev/repos/case-generator"
+    src="https://badges.pufler.dev/visits/karmablackshaw/case-generator"
     alt="visits"
   />
   <img
