@@ -1,6 +1,16 @@
 <template>
   <section class="the-navigation">
     <div class="navigation__body">
+      <div
+        v-if="!breakpoint.sm"
+        class="the-navigation__item the-navigation__item--hamburger"
+      >
+        <base-hamburger
+          class="hamburger"
+          @click="toggleSidebarVisibility"
+        />
+      </div>
+
       <div class="the-navigation__item the-navigation__item--logo">
         <img
           src="./assets/svg/excel.svg"
@@ -27,8 +37,27 @@
 </template>
 
 <script>
+import { inject } from 'vue'
+
+import useSidebar from '@/composables/useSidebar'
+
 export default {
-  name: "TheNavigation"
+  name: "TheNavigation",
+
+  setup () {
+    const {
+      breakpoint
+    } = inject('breakpoint')
+
+    const {
+      toggleVisibility: toggleSidebarVisibility
+    } = useSidebar()
+
+    return {
+      breakpoint,
+      toggleSidebarVisibility
+    }
+  }
 }
 </script>
 

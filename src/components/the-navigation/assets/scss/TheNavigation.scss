@@ -1,11 +1,13 @@
 .the-navigation {
-  @apply shadow-md;
+  z-index: 999;
   width: 100%;
   top: 0;
   height: 100%;
+  border-bottom: 1px solid theme("colors.gray.200");
 
   @include dark() {
-    background-color: theme("colors.gray.900");
+    border-bottom: 1px solid theme("colors.gray.700");
+    background-color: theme("colors.gray.800");
   }
 
   .navigation__body {
@@ -28,6 +30,10 @@
       justify-content: center;
       align-items: center;
 
+      &.the-navigation__item--hamburger {
+        justify-content: flex-start;
+      }
+
       &.the-navigation__item--right {
         justify-content: flex-end;
 
@@ -37,8 +43,11 @@
       }
 
       &.the-navigation__item--logo {
-        justify-content: flex-start;
-        margin-right: 10px;
+        justify-content: center;
+
+        @include breakpoint_sm {
+          justify-content: flex-start;
+        }
 
         img {
           height: 80px;
