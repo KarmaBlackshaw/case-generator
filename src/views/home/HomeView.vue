@@ -35,6 +35,7 @@
           <textarea
             v-model="userInput"
             autofocus
+            placeholder="Enter text"
           >
           </textarea>
         </div>
@@ -49,6 +50,7 @@
           <textarea
             v-model="output"
             disabled
+            placeholder="Enter text to see output"
           ></textarea>
 
           <base-button
