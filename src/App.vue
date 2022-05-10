@@ -5,9 +5,7 @@
     </div>
 
     <div class="app__body">
-      <div class="app__aside">
-        <TheSidebar />
-      </div>
+      <TheSidebar class="app__aside" />
 
       <div class="app__content">
         <router-view />
