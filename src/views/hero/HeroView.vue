@@ -11,10 +11,13 @@
         class="btn btn--github"
         target="blank"
       >
-        <img
-          src="./assets/images/github-dark.png"
-          alt=""
-        >
+        <router-link :to="env.get('REPO_URL')">
+          <img
+            src="./assets/images/github-dark.png"
+            alt=""
+          >
+        </router-link>
+
         <div>
           <p class="title">This project is open source</p>
           <p class="subtitle">Star and fork it on github</p>
@@ -25,9 +28,17 @@
 </template>
 
 <script>
+import { inject } from 'vue'
 
 export default {
-  name: 'HeroView'
+  name: 'HeroView',
+
+  setup () {
+    return {
+
+      env: inject('env')
+    }
+  }
 }
 </script>
 

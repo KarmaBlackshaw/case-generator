@@ -31,6 +31,7 @@ import TheFooter from '@/components/the-footer/TheFooter'
 import useBreakpoint from '@/composables/useBreakpoint'
 import useTheme from '@/composables/useTheme'
 import useSidebar from '@/composables/useSidebar'
+import useEnv from '@/composables/useEnv'
 
 export default {
   components: {
@@ -42,6 +43,7 @@ export default {
   setup () {
     provide('breakpoint', useBreakpoint())
     provide('theme', useTheme())
+    provide('env', useEnv())
 
     const {
       toggleVisibility: toggleSidebarVisibility

@@ -23,7 +23,7 @@
         <base-theme-toggle class="theme-toggle" />
 
         <a
-          href="https://github.com/KarmaBlackshaw/deped-attendance-generator"
+          :href="env.get('REPO_URL')"
           target="_blank"
         >
           <base-image
@@ -56,6 +56,9 @@ export default {
 
     return {
       breakpoint,
+
+      env: inject('env'),
+
       toggleSidebarVisibility
     }
   }
