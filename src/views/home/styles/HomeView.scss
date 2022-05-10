@@ -4,16 +4,13 @@
   flex-direction: column;
   margin-left: 10px;
 
+  $border-color-light: theme("colors.gray.200");
+  $border-color-dark: theme("colors.gray.700");
+
   .home__header.header {
     width: 100%;
-    padding: 10px 15px;
     margin-top: 10px;
     margin-bottom: 10px;
-    border: 1px solid theme("colors.gray.100");
-
-    @include dark {
-      border: 1px solid theme("colors.gray.700");
-    }
 
     .header__title {
       font-size: 1.1em;
@@ -26,9 +23,6 @@
       font-size: 0.9em;
     }
   }
-
-  $border-color-light: theme("colors.gray.100");
-  $border-color-dark: theme("colors.gray.700");
 
   .editor {
     width: 100%;
