@@ -1,6 +1,7 @@
 {
   "vueCompilerOptions": {
-    "experimentalDisableTemplateSupport": true
+    "experimentalDisableTemplateSupport": true,
+    "experimentalShamefullySupportOptionsApi": false
   },
   "compilerOptions": {
     "target": "es5",
