@@ -1,7 +1,26 @@
-.the-sidebar {
+.the-sidebar.sidebar {
   padding-top: 10px;
-  padding-right: 5px;
   padding-bottom: 10px;
+  padding-left: 10px;
+  position: fixed;
+  z-index: 5;
+  background-color: theme("colors.gray.50");
+  border-right: 1px solid theme("colors.gray.100");
+  transition: transform 100ms ease;
+
+  &.sidebar--hidden {
+    transform: translateX(-250px);
+  }
+
+  @include dark {
+    background-color: theme("colors.gray.900");
+    border-right: 1px solid theme("colors.gray.700");
+  }
+
+  @include breakpoint_sm {
+    position: static;
+    border-right: none !important;
+  }
 
   .sidebar__search {
     margin-bottom: 10px;

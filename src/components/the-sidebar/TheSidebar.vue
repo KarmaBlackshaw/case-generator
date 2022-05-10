@@ -1,5 +1,10 @@
 <template>
-  <section class="the-sidebar">
+  <section
+    class="the-sidebar sidebar"
+    :class="{
+      [isSidebarVisible ? 'sidebar--visible' : 'sidebar--hidden']: true
+    }"
+  >
     <div class="sidebar__search">
       <input
         type="search"
@@ -24,8 +29,20 @@
 </template>
 
 <script>
+import useSidebar from '@/composables/useSidebar'
+
 export default {
-  name: "TheSidebar"
+  name: "TheSidebar",
+
+  setup () {
+    const {
+      isVisible: isSidebarVisible
+    } = useSidebar()
+
+    return {
+      isSidebarVisible
+    }
+  }
 }
 </script>
 
