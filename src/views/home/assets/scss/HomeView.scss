@@ -109,14 +109,6 @@
       transition: background-color 200ms ease;
       color: theme("colors.neutral.700");
       background: #42d392;
-
-      &:hover {
-        @apply ring;
-      }
-
-      &:focus {
-        background-color: theme("colors.blue.600");
-      }
     }
   }
 }
