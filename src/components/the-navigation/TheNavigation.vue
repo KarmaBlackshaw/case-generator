@@ -12,10 +12,11 @@
       </div>
 
       <div class="the-navigation__item the-navigation__item--logo">
-        <img
-          src="./assets/svg/excel.svg"
-          alt=""
+        <router-link
+          :to="{name: 'hero'}"
         >
+          {{ breakpoint.sm ? 'Case Converter' : 'CC' }}
+        </router-link>
       </div>
 
       <div class="the-navigation__item the-navigation__item--right">
