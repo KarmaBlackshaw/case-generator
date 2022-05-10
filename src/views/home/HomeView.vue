@@ -2,10 +2,26 @@
   <section class="home">
     <div class="home__header header">
       <div class="header__title">
-        Snake Case
+        {{ caseDetails.title }}
       </div>
-      <div class="header__subtitle">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores, molestias totam aliquid cumque laboriosam provident unde culpa delectus illum neque iure, earum nisi, libero veritatis asperiores corporis. Harum, facere cumque. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae non vitae ducimus praesentium odit fuga, fugiat ut aut repellat sed debitis architecto minus modi, totam ipsum porro nihil. Magnam, explicabo.
+
+      <div
+        class="header__subtitle"
+        v-html="caseDetails.definition"
+      >
+      </div>
+
+      <div class="header__sample">
+        <div v-if="isRandomQuoteLoading">
+          Loading
+        </div>
+
+        <div v-else>
+          <p class="mb-5">
+            {{ randomQuoteData.content }}
+          </p>
+          <p>=> {{ caseDetails.handler(randomQuoteData.content) }}</p>
+        </div>
       </div>
     </div>
 
@@ -16,7 +32,10 @@
         </div>
 
         <div class="editor__body">
-          <textarea v-model="userInput">
+          <textarea
+            v-model="userInput"
+            autofocus
+          >
           </textarea>
         </div>
       </div>
@@ -28,11 +47,15 @@
 
         <div class="editor__body">
           <textarea
+            v-model="output"
             disabled
           ></textarea>
 
-          <base-button class="editor__btn editor__btn--copy">
-            Copy
+          <base-button
+            class="editor__btn editor__btn--copy"
+            @click="copy()"
+          >
+            {{ copied ? 'Copied' : 'Copy' }}
           </base-button>
         </div>
       </div>
@@ -43,45 +66,86 @@
 <script>
 // libs
 import { useClipboard } from '@vueuse/core'
-import { ref, computed } from 'vue'
+import { ref, computed, watch } from 'vue'
+import { useRoute } from 'vue-router'
 
 // composables
 import useCase from '@/composables/useCase'
+
+// libs
+import { useAxios } from '@vueuse/integrations/useAxios'
 
 export default {
   name: 'HomeView',
 
   setup () {
-    const {
-      toJeje
-    } = useCase()
 
+    /**
+     * Cases
+     */
     const userInput = ref('')
 
-    const jejeStr = computed(() => {
-      return toJeje(userInput.value)
+    const {
+      cases
+    } = useCase()
+
+    const route = useRoute()
+
+    const routeCaseType = computed(() => {
+      return route.params.case_type
     })
 
-    const {
-      copy,
-      copied
-    } = useClipboard({ source: jejeStr })
+    watch(
+      () => route.params.case_type,
+      () => userInput.value = ''
+    )
+
+    const caseDetails = computed(() => {
+      return cases.find(item => item.slug === routeCaseType.value)
+    })
+
+    const output = computed(() => {
+      return caseDetails.value.handler(userInput.value)
+    })
 
     function clear () {
       userInput.value = ''
     }
 
+    /**
+     * Copy
+     */
+    const {
+      copy,
+      copied
+    } = useClipboard({ source: output })
+
+    /**
+     * Sample text
+     */
+    const {
+      data: randomQuoteData,
+      isLoading: isRandomQuoteLoading
+    } = useAxios('https://api.quotable.io/random')
+
     return {
+      caseDetails,
+
       clear,
       copy,
       copied,
-      jejeStr,
-      userInput
+
+      output,
+
+      userInput,
+
+      randomQuoteData,
+      isRandomQuoteLoading
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-@import './styles/HomeView';
+@import './assets/scss/HomeView';
 </style>

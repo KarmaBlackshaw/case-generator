@@ -10,17 +10,28 @@
   .home__header.header {
     width: 100%;
     margin-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
 
     .header__title {
       font-size: 1.1em;
       font-weight: 600;
       font-family: Quicksand;
+      position: relative;
     }
 
     .header__subtitle {
-      font-family: Roboto;
       font-size: 0.9em;
+      letter-spacing: 0.025em;
+      margin-bottom: 10px;
+    }
+
+    .header__sample {
+      background-color: theme("colors.gray.700");
+      padding: 10px;
+      border-radius: 5px;
+      color: theme("colors.gray.100");
+      white-space: pre;
+      overflow: auto;
     }
   }
 
@@ -96,8 +107,8 @@
       right: 10px;
       width: 100px;
       transition: background-color 200ms ease;
-      background-color: theme("colors.blue.500");
-      color: theme("colors.blue.100");
+      color: theme("colors.neutral.700");
+      background: #42d392;
 
       &:hover {
         @apply ring;
