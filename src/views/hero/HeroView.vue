@@ -9,14 +9,13 @@
     <div class="hero__actions">
       <a
         class="btn btn--github"
-        target="blank"
+        :href="env.get('REPO_URL')"
+        target="_blank"
       >
-        <router-link :to="env.get('REPO_URL')">
-          <img
-            src="./assets/images/github-dark.png"
-            alt=""
-          >
-        </router-link>
+        <img
+          src="./assets/images/github-dark.png"
+          alt=""
+        >
 
         <div>
           <p class="title">This project is open source</p>
