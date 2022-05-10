@@ -1,24 +1,17 @@
-# ui-template
+## Case Converter
+### Just a simple case converter for your daily use
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+<p align="left">
+  <img
+    src="https://badges.pufler.dev/visits/karmablackshaw/case-generator"
+    alt="visits"
+  />
+  <img
+    src="https://img.shields.io/github/last-commit/karmablackshaw/case-generator"
+    alt="last-commit"
+  />
+  <img
+    src="https://img.shields.io/github/commit-activity/m/karmablackshaw/case-generator?color=yellow&label=Commit%20Activity"
+    alt="visits"
+  />
+</p>
