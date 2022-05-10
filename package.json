@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "@vueuse/core": "^8.2.5",
+    "@vueuse/integrations": "^8.4.2",
+    "axios": "^0.27.2",
     "core-js": "^3.6.5",
     "gsap": "file:src/libs/gsap-bonus.tgz",
     "moment": "^2.29.1",
