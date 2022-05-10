@@ -3,15 +3,15 @@
 
 <p align="left">
   <img
-    src="https://badges.pufler.dev/repos/jeje-generator"
+    src="https://badges.pufler.dev/repos/case-generator"
     alt="visits"
   />
   <img
-    src="https://img.shields.io/github/last-commit/karmablackshaw/jeje-generator"
+    src="https://img.shields.io/github/last-commit/karmablackshaw/case-generator"
     alt="last-commit"
   />
   <img
-    src="https://img.shields.io/github/commit-activity/m/karmablackshaw/jeje-generator?color=yellow&label=Commit%20Activity"
+    src="https://img.shields.io/github/commit-activity/m/karmablackshaw/case-generator?color=yellow&label=Commit%20Activity"
     alt="visits"
   />
 </p>
