@@ -15,6 +15,7 @@ export default () => {
   } = useBreakpoint()
 
   function toggleVisibility (value) {
+    console.log(value)
     return isVisible.value = _isNil(value) ? !isVisible.value : value
   }
 

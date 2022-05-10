@@ -1,6 +1,5 @@
 <template>
   <section
-    ref="sidebar"
     class="the-sidebar sidebar"
     :class="{
       [isSidebarVisible ? 'sidebar--visible' : 'sidebar--hidden']: true
@@ -49,7 +48,6 @@ import useSidebar from '@/composables/useSidebar'
 import useCase from '@/composables/useCase'
 
 // libs
-import { onClickOutside } from '@vueuse/core'
 
 import {
   toLower
@@ -62,13 +60,10 @@ export default {
     /**
      * Sidebar
      */
-    const sidebar = ref(null)
     const {
       toggleVisibility: toggleSidebarVisibility,
       isVisible: isSidebarVisible
     } = useSidebar()
-
-    onClickOutside(sidebar, () => toggleSidebarVisibility(false))
 
     /**
      * Case List
@@ -100,8 +95,6 @@ export default {
     })
 
     return {
-      sidebar,
-
       caseSearch,
       cases: casesList,
 
