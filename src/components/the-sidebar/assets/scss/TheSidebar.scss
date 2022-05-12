@@ -57,6 +57,7 @@
       color: theme("colors.neutral.600");
       position: relative;
       user-select: none;
+      border: 2px solid transparent;
 
       @include dark {
         color: theme("colors.neutral.200");
@@ -65,7 +66,7 @@
       &:hover {
         padding-left: 20px;
         color: theme("colors.green.900");
-        border: 2px solid theme("colors.green.300");
+        border-color: theme("colors.green.300");
         @apply shadow-sm;
 
         @include dark {
