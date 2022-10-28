@@ -1,11 +1,11 @@
 <template>
   <div class="app">
     <div class="app__header">
-      <TheNavigation />
+      <the-navigation />
     </div>
 
     <div class="app__body">
-      <TheSidebar class="app__aside" />
+      <the-sidebar class="app__aside" />
 
       <div
         class="app__content"
@@ -16,22 +16,15 @@
     </div>
 
     <div class="app__footer">
-      <TheFooter />
+      <the-footer />
     </div>
   </div>
 </template>
 
 <script>
-import { provide } from 'vue'
-
-import TheNavigation from '@/components/the-navigation/TheNavigation'
-import TheSidebar from '@/components/the-sidebar/TheSidebar'
-import TheFooter from '@/components/the-footer/TheFooter'
-
-import useBreakpoint from '@/composables/useBreakpoint'
-import useTheme from '@/composables/useTheme'
-import useSidebar from '@/composables/useSidebar'
-import useEnv from '@/composables/useEnv'
+import TheNavigation from '@/components/the-navigation/TheNavigation.vue'
+import TheSidebar from '@/components/the-sidebar/TheSidebar.vue'
+import TheFooter from '@/components/the-footer/TheFooter.vue'
 
 export default {
   components: {
@@ -41,10 +34,6 @@ export default {
   },
 
   setup () {
-    provide('breakpoint', useBreakpoint())
-    provide('theme', useTheme())
-    provide('env', useEnv())
-
     const {
       toggleVisibility: toggleSidebarVisibility
     } = useSidebar()
@@ -57,6 +46,94 @@ export default {
 </script>
 
 <style lang="scss">
-@import '~assets/App';
+:root {
+  --navbar-height: 80px;
+  --footer-height: 44px;
+  --sidebar-width: 250px;
+  --sidebar-margin: 5px;
+}
+
+/* custom scrollbar */
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+  background-color: theme("colors.gray.200");
+
+  @include dark() {
+    background-color: theme("colors.gray.500");
+  }
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: theme("colors.gray.300");
+
+  @include dark() {
+    background-color: theme("colors.gray.600");
+  }
+}
+
+body {
+  min-height: 100%;
+  height: 100%;
+  font-family: Quicksand;
+  color: theme("colors.neutral.800");
+  background: theme("colors.gray.50");
+
+  @include dark() {
+    background-color: theme("colors.gray.900");
+    color: theme("colors.neutral.100");
+  }
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: relative;
+
+  .app__header {
+    flex-grow: 1;
+    height: var(--navbar-height);
+  }
+
+  .app__body {
+    flex-grow: 1;
+    display: flex;
+    height: 100%;
+    position: relative;
+    overflow-y: auto;
+    padding-right: 10px;
+
+    .app__aside {
+      min-width: var(--sidebar-width);
+      width: var(--sidebar-width);
+      height: calc(100vh - var(--navbar-height) - var(--footer-height));
+      overflow: auto;
+    }
+
+    .app__content {
+      flex-grow: 1;
+      max-height: calc(100vh - var(--navbar-height) - var(--footer-height));
+      overflow: auto;
+    }
+  }
+
+  .app__footer {
+    flex-grow: 1;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: var(--footer-height);
+  }
+}
 </style>
 

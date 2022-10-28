@@ -1,3 +1,11 @@
+<script setup>
+const breakpoint = useBreakpoint()
+
+const {
+  toggleVisibility: toggleSidebarVisibility
+} = useSidebar()
+
+</script>
 <template>
   <section class="the-navigation">
     <div class="navigation__body">
@@ -22,48 +30,20 @@
       <div class="the-navigation__item the-navigation__item--right">
         <base-theme-toggle class="theme-toggle" />
 
+        <!-- :href="env.get('REPO_URL')" -->
         <a
-          :href="env.get('REPO_URL')"
           target="_blank"
         >
-          <base-image
+          <!-- <base-image
             :src-dark="require('./assets/images/github-dark.png')"
             :src-light="require('./assets/images/github-light.png')"
             alt=""
-          />
+          /> -->
         </a>
       </div>
     </div>
   </section>
 </template>
-
-<script>
-import { inject } from 'vue'
-
-import useSidebar from '@/composables/useSidebar'
-
-export default {
-  name: "TheNavigation",
-
-  setup () {
-    const {
-      breakpoint
-    } = inject('breakpoint')
-
-    const {
-      toggleVisibility: toggleSidebarVisibility
-    } = useSidebar()
-
-    return {
-      breakpoint,
-
-      env: inject('env'),
-
-      toggleSidebarVisibility
-    }
-  }
-}
-</script>
 
 <style lang="scss" scoped>
 @import './assets/scss/TheNavigation.scss';

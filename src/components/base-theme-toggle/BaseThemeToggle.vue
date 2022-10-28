@@ -30,13 +30,11 @@
 </template>
 
 <script>
-import { inject } from 'vue'
-
 export default {
   name: "BaseThemeToggle",
 
   setup () {
-    const theme = inject('theme')
+    const theme = useTheme()
 
     return {
       isDark: theme.isDark,

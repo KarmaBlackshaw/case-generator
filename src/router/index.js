@@ -4,17 +4,17 @@ const routes = [
   {
     path: '/',
     name: 'hero',
-    component: () => import('../views/hero/HeroView')
+    component: () => import('../views/hero/HeroView.vue')
   },
   {
     path: '/:case_type',
     name: 'home',
-    component: () => import('../views/home/HomeView')
+    component: () => import('../views/home/HomeView.vue')
   }
 ]
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHistory(import.meta.BASE_URL),
   routes
 })
 

@@ -3,8 +3,9 @@ import { ref, computed } from 'vue'
 // libs
 import _isNil from 'lodash/isNil'
 
+const env = useEnv()
 // vars
-const LOCAL_STORAGE_SIDEBAR_KEY = `${process.env.VUE_APP_TITLE}:sidebar`
+const LOCAL_STORAGE_SIDEBAR_KEY = `${env.get('TITLE')}:sidebar`
 const localstorageSidebar = window.localStorage[LOCAL_STORAGE_SIDEBAR_KEY]
 const isVisible = ref(localstorageSidebar ? JSON.parse(localstorageSidebar) : false)
 

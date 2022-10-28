@@ -1,6 +1,6 @@
 export default () => {
   function get (key) {
-    return process.env[`VUE_APP_${key}`]
+    return import.meta.env[`VITE_${key}`]
   }
 
   return {
