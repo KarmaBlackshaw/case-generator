@@ -1,5 +1,5 @@
 <template>
-  <div class="app">
+  <div class="app text-gray-800 dark:text-white">
     <div class="app__header">
       <the-navigation />
     </div>

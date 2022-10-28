@@ -11,6 +11,7 @@ declare module '@vue/runtime-core' {
     BaseThemeToggle: typeof import('./../components/base-theme-toggle/BaseThemeToggle.vue')['default']
     HelloWorld: typeof import('./../components/HelloWorld.vue')['default']
     'IconBi:github': typeof import('~icons/bi/github')['default']
+    'IconGg:menuLeft': typeof import('~icons/gg/menu-left')['default']
     'IconIc:outlineLightMode': typeof import('~icons/ic/outline-light-mode')['default']
     'IconMaterialSymbols:nightlight': typeof import('~icons/material-symbols/nightlight')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
