@@ -5,6 +5,11 @@ const {
   toggleVisibility: toggleSidebarVisibility
 } = useSidebar()
 
+const {
+  isDark,
+  toggleDark
+} = useTheme()
+
 </script>
 <template>
   <section class="the-navigation">
@@ -23,23 +28,32 @@ const {
         <router-link
           :to="{name: 'hero'}"
         >
-          {{ breakpoint.sm ? 'Case Converter' : 'CC' }}
+          {{ breakpoint.lg ? 'Case Converter' : 'CC' }}
         </router-link>
       </div>
 
       <div class="the-navigation__item the-navigation__item--right">
-        <base-theme-toggle class="theme-toggle" />
+        <div class="flex gap-5">
+          <button @click="toggleDark()">
+            <icon-ic:outline-light-mode
+              v-if="isDark"
+              class="w-6 h-6"
+            />
+            <icon-material-symbols:nightlight
+              v-else
+              class="w-6 h-6"
+            />
+          </button>
 
-        <!-- :href="env.get('REPO_URL')" -->
-        <a
-          target="_blank"
-        >
-          <!-- <base-image
-            :src-dark="require('./assets/images/github-dark.png')"
-            :src-light="require('./assets/images/github-light.png')"
-            alt=""
-          /> -->
-        </a>
+          <a
+            href="https://github.com/KarmaBlackshaw/case-generator"
+            target="_blank"
+          >
+            <icon-bi:github
+              class="w-6 h-6"
+            />
+          </a>
+        </div>
       </div>
     </div>
   </section>

@@ -7,12 +7,12 @@ const isDark = useDark({
   valueLight: 'light'
 })
 
-export default () => {
-  const toggle = useToggle(isDark)
+const toggleDark = useToggle(isDark)
 
+export default () => {
   return {
     name: isDark.value ? 'dark' : 'light',
     isDark,
-    toggle
+    toggleDark
   }
 }
