@@ -15,9 +15,10 @@ const {
   <section
     class="
       h-[72px] min-h-[72px]
-      border-b border-gray-200/10
+      border-b border-gray-200 dark:border-gray-200/10
       dark:bg-gray-800
-      px-20
+      px-10
+      sm:px-20
     "
   >
     <div
@@ -29,34 +30,46 @@ const {
     >
       <div
         class="
-          sm:invisible
+          sm:hidden
           items-center
           flex
+          cursor-pointer
         "
       >
         <icon-gg:menu-left
-          class="h-7 w-7"
+          class="h-5 w-5"
           @click="toggleSidebarVisibility()"
         />
       </div>
 
-      <div class="flex items-center">
+      <div
+        class="
+          flex items-center
+          font-bebas-neue
+          font-bold
+          text-2xl
+          sm:text-4xl
+          bg-clip-text
+          text-transparent
+          bg-gradient-to-r from-[#42d392] to-[#647eff]
+        "
+      >
         <router-link
           :to="{name: 'hero'}"
         >
-          {{ breakpoint.lg ? 'Case Converter' : 'CC' }}
+          Case Converter
         </router-link>
       </div>
 
-      <div class="flex gap-5 items-center">
+      <div class="flex gap-2 sm:gap-5 items-center">
         <button @click="toggleDark()">
           <icon-ic:outline-light-mode
             v-if="isDark"
-            class="w-6 h-6"
+            class="w-5 h-5 sm:w-5 sm:h-5"
           />
           <icon-material-symbols:nightlight
             v-else
-            class="w-6 h-6"
+            class="w-5 h-5 sm:w-5 sm:h-5"
           />
         </button>
 
@@ -65,14 +78,10 @@ const {
           target="_blank"
         >
           <icon-bi:github
-            class="w-6 h-6"
+            class="w-5 h-5 sm:w-5 sm:h-5"
           />
         </a>
       </div>
     </div>
   </section>
 </template>
-
-<style lang="scss" scoped>
-@import './assets/scss/TheNavigation.scss';
-</style>
