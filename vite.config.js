@@ -9,6 +9,9 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 
+// configs
+import postcss from './postcss.config.js'
+
 export default defineConfig({
   clearScreen: true,
   plugins: [
@@ -50,6 +53,7 @@ export default defineConfig({
   ],
 
   css: {
+    postcss,
     preprocessorOptions: {
       scss: {
         additionalData: `
