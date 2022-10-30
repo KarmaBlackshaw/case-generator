@@ -1,46 +1,14 @@
 // libs
-import _debounce from 'lodash/debounce'
+import _ from 'lodash'
 
-export default () => {
-  const state = reactive({
-    width: 0
-  })
+import tailwind from '../../tailwind.config'
 
-  const sizes = {
-    sm: 640,
-    md: 768,
-    lg: 1024,
-    xl: 1280
-  }
+import { useBreakpoints } from '@vueuse/core'
 
-  const breakpoint = reactive({
-    sm: false,
-    md: false,
-    lg: false,
-    xl: false
-  })
+const sizesss = _.flow([
+  val => Object.entries(val),
+  val => val.map(entry => [entry[0], Number(entry[1].replace(/px/gi, ''))]),
+  val => Object.fromEntries(val)
+])(tailwind.theme.screens)
 
-  const resizeCallback = _debounce(() => {
-    const width = window.innerWidth
-
-    for (const size in sizes) {
-      const breakpointWidth = sizes[size]
-
-      breakpoint[size] = width >= breakpointWidth
-    }
-  }, 10)
-
-  onMounted(() => {
-    state.width = window.innerWidth
-    resizeCallback()
-    window.addEventListener('resize', resizeCallback)
-  })
-
-  onUnmounted(() => {
-    window.removeEventListener('resize', resizeCallback)
-  })
-
-  return {
-    breakpoint
-  }
-}
+export default () => useBreakpoints(sizesss)

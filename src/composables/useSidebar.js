@@ -10,13 +10,9 @@ const localstorageSidebar = window.localStorage[LOCAL_STORAGE_SIDEBAR_KEY]
 const isVisible = ref(localstorageSidebar ? JSON.parse(localstorageSidebar) : false)
 
 // composables
-import useBreakpoint from '@/composables/useBreakpoint'
+const breakpoint = useBreakpoint()
 
 export default () => {
-  const {
-    breakpoint
-  } = useBreakpoint()
-
   function toggleVisibility (value) {
     isVisible.value = _isNil(value) ? !isVisible.value : value
     window.localStorage[LOCAL_STORAGE_SIDEBAR_KEY] = isVisible.value
