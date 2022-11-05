@@ -16,9 +16,12 @@ declare module '@vue/runtime-core' {
     'IconMaterialSymbols:contentCopyOutline': typeof import('~icons/material-symbols/content-copy-outline')['default']
     'IconMaterialSymbols:keyboardDoubleArrowRight': typeof import('~icons/material-symbols/keyboard-double-arrow-right')['default']
     'IconMaterialSymbols:nightlight': typeof import('~icons/material-symbols/nightlight')['default']
+    'IconMaterialSymbols:searchRounded': typeof import('~icons/material-symbols/search-rounded')['default']
+    'IconRi:vuejsFill': typeof import('~icons/ri/vuejs-fill')['default']
+    'IconTwemoji:sadButRelievedFace': typeof import('~icons/twemoji/sad-but-relieved-face')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    TheFooter: typeof import('./../components/the-footer/TheFooter.vue')['default']
+    TheFooter: typeof import('./../components/TheFooter.vue')['default']
     TheNavigation: typeof import('./../components/TheNavigation.vue')['default']
     TheSidebar: typeof import('./../components/TheSidebar.vue')['default']
   }
