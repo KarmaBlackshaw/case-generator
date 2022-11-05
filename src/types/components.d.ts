@@ -13,12 +13,14 @@ declare module '@vue/runtime-core' {
     'IconBi:github': typeof import('~icons/bi/github')['default']
     'IconGg:menuLeft': typeof import('~icons/gg/menu-left')['default']
     'IconIc:outlineLightMode': typeof import('~icons/ic/outline-light-mode')['default']
+    'IconMaterialSymbols:contentCopyOutline': typeof import('~icons/material-symbols/content-copy-outline')['default']
+    'IconMaterialSymbols:keyboardDoubleArrowRight': typeof import('~icons/material-symbols/keyboard-double-arrow-right')['default']
     'IconMaterialSymbols:nightlight': typeof import('~icons/material-symbols/nightlight')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     TheFooter: typeof import('./../components/the-footer/TheFooter.vue')['default']
-    TheNavigation: typeof import('./../components/the-navigation/TheNavigation.vue')['default']
-    TheSidebar: typeof import('./../components/the-sidebar/TheSidebar.vue')['default']
+    TheNavigation: typeof import('./../components/TheNavigation.vue')['default']
+    TheSidebar: typeof import('./../components/TheSidebar.vue')['default']
   }
 }
 
