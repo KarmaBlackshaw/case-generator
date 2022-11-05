@@ -1,3 +1,10 @@
+<script setup>
+const {
+  toggleVisibility: toggleSidebarVisibility
+} = useSidebar()
+
+</script>
+
 <template>
   <div class="app text-gray-800 dark:text-white">
     <div class="app__header">
@@ -20,30 +27,6 @@
     </div>
   </div>
 </template>
-
-<script>
-import TheNavigation from '@/components/the-navigation/TheNavigation.vue'
-import TheSidebar from '@/components/the-sidebar/TheSidebar.vue'
-import TheFooter from '@/components/the-footer/TheFooter.vue'
-
-export default {
-  components: {
-    TheNavigation,
-    TheSidebar,
-    TheFooter
-  },
-
-  setup () {
-    const {
-      toggleVisibility: toggleSidebarVisibility
-    } = useSidebar()
-
-    return {
-      toggleSidebarVisibility
-    }
-  }
-}
-</script>
 
 <style lang="scss">
 :root {
@@ -78,19 +61,6 @@ export default {
 
   @include dark() {
     background-color: theme("colors.gray.600");
-  }
-}
-
-body {
-  min-height: 100%;
-  height: 100%;
-  font-family: Quicksand;
-  color: theme("colors.neutral.800");
-  background: theme("colors.gray.50");
-
-  @include dark() {
-    background-color: theme("colors.gray.900");
-    color: theme("colors.neutral.100");
   }
 }
 
