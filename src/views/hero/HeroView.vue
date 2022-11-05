@@ -57,4 +57,3 @@ useHead({
 <style lang="scss" scoped>
 @import './assets/scss/HeroView';
 </style>
-h e l l o  w o r l d
