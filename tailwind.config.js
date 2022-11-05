@@ -1,3 +1,4 @@
+import plugin from 'tailwindcss/plugin'
 import defaultTheme from 'tailwindcss/defaultTheme'
 
 export default {
@@ -24,5 +25,10 @@ export default {
       }
     }
   },
-  plugins: []
+  plugins: [
+    plugin(function ({ addVariant }) {
+      addVariant('not-last', '&:not(:last-child)')
+    })
+  ]
 }
+
