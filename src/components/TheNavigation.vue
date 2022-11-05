@@ -1,6 +1,4 @@
 <script setup>
-const breakpoint = useBreakpoint()
-
 const {
   toggleVisibility: toggleSidebarVisibility
 } = useSidebar()
@@ -17,7 +15,7 @@ const {
       h-[72px] min-h-[72px]
       border-b border-gray-200 dark:border-gray-200/10
       dark:bg-gray-800
-      px-10
+      px-5
       sm:px-20
     "
   >
@@ -47,11 +45,12 @@ const {
           flex items-center
           font-bebas-neue
           font-bold
-          text-2xl
+          text-3xl
           sm:text-4xl
           bg-clip-text
           text-transparent
           bg-gradient-to-r from-[#42d392] to-[#647eff]
+          select-none
         "
       >
         <router-link
