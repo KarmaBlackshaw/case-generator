@@ -23,7 +23,7 @@ const {
       class="
         h-full w-full
         flex
-        justify-between
+        justify-between sm:justify-end
       "
     >
       <div
@@ -42,25 +42,10 @@ const {
 
       <div
         class="
-          flex items-center
-          font-bebas-neue
-          font-bold
-          text-3xl
-          sm:text-4xl
-          bg-clip-text
-          text-transparent
-          bg-gradient-to-r from-[#42d392] to-[#647eff]
-          select-none
+          flex gap-2 sm:gap-5 items-center
+          text-gray-900/50 dark:text-gray-200/50
         "
       >
-        <router-link
-          :to="{name: 'hero'}"
-        >
-          Case Converter
-        </router-link>
-      </div>
-
-      <div class="flex gap-2 sm:gap-5 items-center">
         <button @click="toggleDark()">
           <icon-ic:outline-light-mode
             v-if="isDark"
