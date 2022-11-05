@@ -7,23 +7,32 @@ const {
 
 <template>
   <div class="app text-gray-800 dark:text-white">
-    <div class="app__header">
-      <the-navigation />
-    </div>
-
-    <div class="app__body">
-      <the-sidebar class="app__aside" />
+    <div
+      class="
+        grow
+        flex
+        h-full
+        relative
+        overflow-y-auto
+      "
+    >
+      <the-sidebar />
 
       <div
-        class="app__content"
+        class="grow flex flex-col"
         @click="toggleSidebarVisibility(false)"
       >
-        <router-view />
-      </div>
-    </div>
+        <the-navigation />
 
-    <div class="app__footer">
-      <the-footer />
+        <router-view
+          class="
+            p-3
+            h-full
+          "
+        />
+
+        <!-- <the-footer /> -->
+      </div>
     </div>
   </div>
 </template>
@@ -99,8 +108,6 @@ const {
 
   .app__footer {
     flex-grow: 1;
-    position: absolute;
-    bottom: 0;
     width: 100%;
     height: var(--footer-height);
   }

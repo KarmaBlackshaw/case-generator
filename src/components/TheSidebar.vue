@@ -33,8 +33,10 @@ const casesList = computed(() => {
       bg-gray-100 dark:bg-gray-900
       border-r border-gray-100 dark:border-gray-800
       transition-[transform]
-      overflow-y-auto
       flex flex-col gap-5
+      w-[250px]
+      min-w-[250px]
+      h-full
     "
     :class="{
       [isSidebarVisible ? 'sidebar--visible' : 'sidebar--hidden']: true
@@ -83,7 +85,7 @@ const casesList = computed(() => {
       >
     </div>
 
-    <ul class="flex flex-col gap-[1px]">
+    <ul class="flex flex-col gap-[1px] overflow-y-auto">
       <template v-if="casesList.length">
         <template
           v-for="(caseItem, caseKey) in casesList"
