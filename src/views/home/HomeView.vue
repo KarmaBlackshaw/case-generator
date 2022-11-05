@@ -57,64 +57,117 @@ const sampleData = computed(() => {
 </script>
 
 <template>
-  <section class="home">
-    <div class="home__header header">
-      <div class="header__title">
+  <section class="flex flex-col gap-5">
+    <section>
+      <div class="text-lg font-bold">
         {{ caseDetails.title }}
       </div>
 
       <div
-        class="header__subtitle"
-        v-html="caseDetails.definition"
+        class="
+          text-sm
+          dark:text-gray-100/50
+        "
       >
+        <p>{{ caseDetails.definition }}</p>
       </div>
+    </section>
 
-      <div class="header__sample">
+    <section>
+      <div
+        class="
+          bg-gray-900
+          rounded
+          p-2
+          text-gray-200
+          text-sm
+        "
+      >
         <div v-if="isRandomQuoteLoading">
           Loading
         </div>
 
         <div v-else>
-          <p class="mb-5">
+          <p class="mb-5 break-words">
             {{ randomQuoteData.content }}
           </p>
-          <p>
+          <p class="break-words">
             <icon-material-symbols:keyboard-double-arrow-right class="inline" />
             {{ sampleData }}
           </p>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="editor">
-      <div class="editor__item editor__item--left">
-        <div class="editor__title">
-          Editor
+    <div
+      class="
+        w-full
+        h-full
+        flex flex-col sm:flex-row gap-[1px]
+        bg-gray-200 dark:bg-gray-200/10
+        p-[1px]
+    "
+    >
+      <div
+        v-for="i in 2"
+        :key="i"
+        class="basis-0 grow flex flex-col gap-[1px]"
+      >
+        <div
+          class="
+            px-3 py-1
+            text-sm
+            font-mono
+            text-gray-500
+            bg-gray-50 dark:bg-gray-800
+          "
+        >
+          {{ i === 1 ? 'Editor' : 'Output' }}
         </div>
 
-        <div class="editor__body">
+        <div
+          class="
+            h-full
+            flex
+            flex-col
+            relative
+            bg-gray-50 dark:bg-gray-800
+          "
+        >
           <textarea
+            v-if="i === 1"
             v-model="userInput"
             autofocus
+            class="
+              h-full
+              w-full
+              outline-none
+              p-3
+              bg-transparent
+              resize-none
+            "
             placeholder="Enter text"
           >
           </textarea>
-        </div>
-      </div>
 
-      <div class="editor__item editor__item--right">
-        <div class="editor__title">
-          Output
-        </div>
-
-        <div class="editor__body">
           <textarea
+            v-else
             v-model="output"
             disabled
+            class="
+              h-full
+              w-full
+              outline-none
+              p-3
+              bg-transparent
+              resize-none
+            "
             placeholder="Enter text to see output"
-          ></textarea>
+          >
+          </textarea>
 
           <button
+            v-if="i === 2"
             class="
               absolute
               bottom-[10px]
@@ -141,14 +194,12 @@ const sampleData = computed(() => {
 </template>
 
 <style lang="scss" scoped>
+  $border-color-light: theme("colors.gray.200");
+  $border-color-dark: theme("colors.gray.700");
 .home {
   height: 100%;
   display: flex;
   flex-direction: column;
-  margin-left: 10px;
-
-  $border-color-light: theme("colors.gray.200");
-  $border-color-dark: theme("colors.gray.700");
 
   .home__header.header {
     width: 100%;
@@ -178,82 +229,6 @@ const sampleData = computed(() => {
     }
   }
 
-  .editor {
-    width: 100%;
-    // height: 100%;
-    flex: 1 1 auto;
-    border: 1px solid $border-color-light;
-    display: flex;
-    margin-bottom: 10px;
-
-    @include dark {
-      border: 1px solid $border-color-dark;
-    }
-  }
-
-  .editor__item {
-    flex: 1 1 auto;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-
-    &.editor__item--left {
-      border-right: 1px solid $border-color-light;
-
-      @include dark {
-        border-right: 1px solid $border-color-dark;
-      }
-    }
-  }
-
-  .editor__title {
-    padding: 5px 10px;
-    border-bottom: 1px solid $border-color-light;
-    font-family: "Fira Mono", monospace;
-    text-transform: uppercase;
-    font-size: 0.8em;
-
-    @include dark {
-      border-bottom: 1px solid $border-color-dark;
-    }
-  }
-
-  .editor__body {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 5px;
-    position: relative;
-
-    textarea {
-      height: inherit;
-      width: 100%;
-      margin: 0;
-      border: none;
-      padding: 10px;
-      background-color: transparent;
-      resize: none;
-
-      &:focus {
-        border: none;
-        outline: none;
-      }
-    }
-  }
-
-  .editor__btn {
-    border-radius: 20px;
-
-    &.editor__btn--copy {
-      position: absolute;
-      bottom: 10px;
-      right: 10px;
-      width: 100px;
-      transition: background-color 200ms ease;
-      color: theme("colors.neutral.700");
-      background: #42d392;
-    }
-  }
 }
 
 </style>
