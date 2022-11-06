@@ -1,4 +1,5 @@
 <script setup>
+
 /**
  * Sidebar
  */
@@ -7,9 +8,12 @@ const {
   isVisible: isSidebarVisible
 } = useSidebar()
 
+const sidebar = ref(null)
+onClickOutside(sidebar, () => toggleSidebarVisibility(false))
+
 /**
-     * Case List
-     */
+ * Case List
+ */
 const {
   cases: casesRawList
 } = useCase()
@@ -27,8 +31,9 @@ const casesList = computed(() => {
 
 <template>
   <section
+    ref="sidebar"
     class="
-      z-5
+      z-[99]
       p-5
       bg-gray-100 dark:bg-gray-900
       border-r border-gray-100 dark:border-gray-800
@@ -37,9 +42,12 @@ const casesList = computed(() => {
       w-[250px]
       min-w-[250px]
       h-full
+      fixed
+      sm:relative
+      shadow-2xl sm:shadow-none
     "
     :class="{
-      [isSidebarVisible ? 'sidebar--visible' : 'sidebar--hidden']: true
+      [isSidebarVisible ? 'translate-x-[0]' : 'translate-x-[-250px]']: true
     }"
   >
     <div

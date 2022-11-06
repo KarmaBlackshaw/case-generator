@@ -1,5 +1,3 @@
-import { ref, computed } from 'vue'
-
 // libs
 import _isNil from 'lodash/isNil'
 
@@ -22,7 +20,7 @@ export default () => {
    * If greater than small screen, always show
    */
   const isVisibleComputed = computed(() => {
-    return breakpoint.sm ? true : isVisible.value
+    return breakpoint.sm.value ? true : isVisible.value
   })
 
   return {
