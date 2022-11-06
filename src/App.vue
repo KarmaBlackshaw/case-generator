@@ -1,7 +1,4 @@
 <script setup>
-const {
-  toggleVisibility: toggleSidebarVisibility
-} = useSidebar()
 
 </script>
 
@@ -20,7 +17,6 @@ const {
 
       <div
         class="grow flex flex-col"
-        @click="toggleSidebarVisibility(false)"
       >
         <the-navigation />
 
